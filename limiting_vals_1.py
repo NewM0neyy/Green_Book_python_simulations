@@ -1,6 +1,6 @@
 import numpy as np
 def rollin(trials=100000):
-  fair_val=0
+  fair_val=[]
   for _ in range(trials):
     last_roll=0
     while True:
@@ -10,11 +10,12 @@ def rollin(trials=100000):
       if roll==1:
         
         break
+      fair_val.append(last_roll)
       
-      fair_val+=last_roll
-  p=fair_val/trials
+      
+  p=np.mean(fair_val)
   return p
-print(rollin())       
+print(rollin())    
         
     
         
